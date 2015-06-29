@@ -37,7 +37,7 @@
 
       {
          "name":"string.quoted.double.plantuml",
-         "begin":"([A-Za-z_0-9]+) +((-?->)|(<-?-)) +([A-Za-z_0-9]+)(:)",
+         "begin":"([A-Za-z_0-9]+) +((-?->)|(<-?-)) +([A-Za-z_0-9]+)\\s*(:)",
          "end":"\\n",
          "beginCaptures": {
             "1": { "name": "constant.string.plantuml" },
