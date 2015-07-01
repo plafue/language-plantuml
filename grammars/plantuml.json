@@ -2,7 +2,7 @@
   "scopeName": "source.plantuml",
   "name": "PlantUML",
    "fileTypes":[
-      "pu", "puml"
+      "pu", "puml", "plantuml"
    ],
    "uuid":"ca03e751-04ef-4330-9a6b-2199aae1c418",
    "patterns":[
