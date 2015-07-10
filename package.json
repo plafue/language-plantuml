@@ -1,7 +1,7 @@
 {
   "name": "language-plantuml",
   "version": "0.1.1",
-  "description": "PlantUML laguage support for atom",
+  "description": "PlantUML language support for atom",
   "repository": "https://github.com/plafue/language-plantuml",
   "license": "MIT",
   "engines": {
