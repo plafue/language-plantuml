@@ -11,6 +11,16 @@
          "begin":"^(#|')",
          "name":"comment.line.plantuml"
       },
+      {
+            "name": "comment.block.plantuml",
+            "begin": "/'",
+            "end": "'/",
+            "beginCaptures": {
+                "0": {
+                    "name": "comment.line.plantuml"
+                }
+            }
+      },
 
       {
          "match":"\\b(abstract|actor|class|component|enum|interface|object|participant|state|usecase)\\b",
