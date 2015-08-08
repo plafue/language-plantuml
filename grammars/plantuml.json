@@ -67,7 +67,5 @@
          "match":"\\b[a-z_]+[A-Za-z_0-9]*\\b",
          "name":"variable.parameter.plantuml"
       }
-   ],
-   "name":"PlantUML",
-   "scopeName":"plantuml"
+   ]
 }
