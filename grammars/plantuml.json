@@ -8,7 +8,7 @@
    "patterns":[
       {
          "end":"\\n",
-         "begin":"^(#|')",
+         "begin":"'",
          "name":"comment.line.plantuml"
       },
 
