@@ -1,4 +1,4 @@
-'.plantuml':
+'.source.plantuml':
   'Start Sequence Diagram':
     'prefix':'starts'
     'body': """
