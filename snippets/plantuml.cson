@@ -1,0 +1,316 @@
+'.plantuml':
+  'Start Sequence Diagram':
+    'prefix':'starts'
+    'body': """
+      @startuml
+      title The Title
+      actor Foo1
+      box "A Box Title" #LightBlue
+      boundary Foo2
+      control Foo3
+      end box
+      entity Foo4
+      database Foo5
+      participant Foo6 as Foo6 << Generated >>
+      participant Foo7 << (F,#ADD1B2) >>
+      Foo1 -> Foo2 : To boundary
+      Foo1 -> Foo3 : To control
+      activate Foo3
+      deactivate Foo3
+      Foo1 -> Foo4 : To entity
+      note left
+        a note
+        on several lines
+      end note
+      == More Features ==
+      Foo1 -> Foo5 : To database
+      Foo1 -> Foo6
+      Foo1 -> Foo1 : To self
+      ||45||
+      alt successful case
+      Foo1 -> Foo2: Successful condition
+      else some kind of failure
+      Foo1 -> Foo4: Failed condition
+      end
+      @enduml
+    """
+  'Start Use Case Diagram':
+    'prefix': 'startu'
+    'body' : """
+      @startuml
+      title "Use Case Title"
+      'actors
+      actor User
+      actor Admin
+      actor "Another Actor" as AnotherActor
+
+      User <|-- Admin
+
+      'use cases
+      rectangle "A Rectangle" {
+        usecase UC3
+      }
+      usecase "Use the application" as UCUseTheApplication << Main >>
+      usecase UC1 as "You can use
+      several lines to define your usecase.
+      You can also use separators.
+      --
+      Several separators are possible.
+      ==
+      And you can add titles:
+      ..Conclusion..
+      This allows large description."
+
+      ' uses
+      AnotherActor -> UCUseTheApplication
+      AnotherActor -> UC3
+      User .up.> UC1
+      User --> UCUseTheApplication : A small label
+
+      @enduml
+    """
+  'Start Activity Diagram':
+    'prefix': 'starta'
+    'body': """
+      @startuml
+      title Servlet Container
+      (*) --> "ClickServlet.handleRequest()"
+      --> "new Page"
+      if "Page.onSecurityCheck" then
+      ->[true] "Page.onInit()"
+      if "isForward?" then
+      ->[no] "Process controls"
+      if "continue processing?" then
+      -->[yes] ===RENDERING===
+      else
+      -->[no] ===REDIRECT_CHECK===
+      endif
+      else
+      -->[yes] ===RENDERING===
+      endif
+      if "is Post?" then
+      -->[yes] "Page.onPost()"
+      --> "Page.onRender()" as render
+      --> ===REDIRECT_CHECK===
+      else
+      -->[no] "Page.onGet()"
+      --> render
+      endif
+      else
+      -->[false] ===REDIRECT_CHECK===
+      endif
+      if "Do redirect?" then
+      ->[yes] "redirect request"
+      --> ==BEFORE_DESTROY===
+      else
+      if "Do Forward?" then
+      -left->[yes] "Forward request"
+      --> ==BEFORE_DESTROY===
+      else
+      -right->[no] "Render page template"
+      --> ==BEFORE_DESTROY===
+      endif
+      endif
+      --> "Page.onDestroy()"
+      -->(*)
+      @enduml
+    """
+  'Package':
+    'prefix': 'pack'
+    'body': """
+    package ${1:name} <<${2:Folder|Cloud|Rect|Database|Frame>>}
+    """
+  'Start Class Diagram':
+    'prefix': 'startz'
+    'body': """
+      @startuml
+      ' package and class defs
+      package BigPackage <<Folder>> {
+        class ArrayList
+        abstract class List
+
+        ArrayList .up.|> List
+        class Class13
+        class Class17
+        class Class18
+        class Class19
+        class Class20
+
+        enum TimeUnit {
+        DAYS
+        HOURS
+        MINUTES
+        }
+        annotation SuppressWarnings
+      }
+
+      package java.lang <<Rect>> {
+        interface Runnable {
+          run():void
+        }
+      }
+      package Package02 <<Cloud>> {
+        class Class01 {
+          {static}  -value1:string
+          ..
+          {abstract} #value2:string
+          ==
+          +value3:string
+          --
+          m(a: string):void
+        }
+        class Class02
+      }
+
+      class Class15 <? extends Element > {
+
+      }
+      package FPackage <<Frame>> {
+        class Class05
+        class Class06
+        class Class08
+      }
+      package Package11 <<Database>> {
+        class Class10
+        class Class04
+
+        Class05 o-- Class06
+        Class05 .. Class08
+        Class05 -- Class10
+        Class04 *-- Class05
+
+      }
+
+
+      note "This is a floating note" as N1
+      Class01 -- N1
+      ' relationship
+      Class01 <|-- Class02
+      Class13 --> Class20 : uses >
+      Class15 .> Class20 : label
+      Class17 ..|> Class20
+      Class19 <--* Class20
+
+      @enduml
+
+    """
+
+  'Start Component Diagram':
+    'prefix': 'startc'
+    'body' : """
+      @startuml
+      title The Title
+      skinparam componentStyle uml2
+      package "Some Group" {
+        interface HTTP as httpEndpoint
+        [First Component]
+        [Another Component]
+      }
+      node "Other Groups" {
+        FTP - [Second Component]
+      }
+      cloud {
+        [Example 1]
+      }
+      database "MySql" {
+        folder "This is my folder" {
+          [Folder 3]
+        }
+        frame "Foo" {
+          [Frame 4]
+        }
+      }
+      httpEndpoint - [First Component]
+      [First Component] --> FTP
+      [Another Component] --> [Example 1]
+      [Example 1] --> [Folder 3]
+      @enduml
+    """
+  'Autonumber (Sequence diagrams)':
+    'prefix': 'auto'
+    'body': 'autonumber'
+  'Autonumber Stop (Sequence Diagram)':
+    'prefix': 'autos'
+    'body' : 'autonumber stop'
+
+  'Activate (Sequence Diagram)':
+    'prefix': 'activ'
+    'body': 'activate ${1:node}'
+  'Deactivate (Sequence Diagram)':
+    'prefix': 'deact'
+    'body': 'deactivate ${1:node}'
+
+  'Start State Diagram':
+    'prefix': 'startt'
+    'body': """
+      @startuml
+      title The Title
+
+      [*] --> NotShooting
+      state NotShooting {
+        [*] --> Idle
+        Idle --> Configuring : EvConfig
+        Configuring --> Idle : EvConfig
+      }
+      state Configuring {
+        [*] --> NewValueSelection
+        NewValueSelection --> NewValuePreview : EvNewValue
+        NewValuePreview --> NewValueSelection : EvNewValueRejected
+        NewValuePreview --> NewValueSelection : EvNewValueSaved
+        state NewValuePreview {
+          State1 -> State2
+        }
+      }
+      note left of NotShooting
+        out of ammo
+      end note
+      note as N1
+        A note can also
+        be defined on
+        several lines
+      end note
+
+      @enduml
+    """
+
+  'Start Uml':
+    'prefix': 'start'
+    'body': """
+    @startuml
+    $1
+    @enduml
+    """
+  'New Page (Use Case Diagram)':
+    'prefix':'new'
+    'body': 'newpage'
+  'Frame':
+    'prefix': 'frame'
+    'body' : """
+    frame ${1:title} {
+      $2
+    }
+    """
+  'Folder':
+    'prefix': 'folder'
+    'body' : """
+    folder ${1:title} {
+      $3
+    }
+    """
+  'Node':
+    'prefix': 'node'
+    'body' : """
+    node "${1:title}" as ${2:alias} {
+      $3
+    }
+    """
+  'Database':
+    'prefix': 'database'
+    'body' : """
+      database "${1:title}" as ${2:alias} {
+        $3
+      }
+    """
+  'Component':
+    'prefix':'comp'
+    'body': 'component "${1:title}" as ${2:alias}'
