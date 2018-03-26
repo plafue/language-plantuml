@@ -1,4 +1,6 @@
-".plantuml":
-  editor:
-    commentEnd: "'/ "
-    commentStart: " /'"
+".source.plantuml":
+	editor:
+		commentStart: "/' "
+		commentEnd: "'/"
+		softTabs: false
+		tabLength: 4
