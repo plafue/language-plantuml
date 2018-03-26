@@ -1,0 +1,6 @@
+".source.plantuml":
+	editor:
+		commentStart: "/' "
+		commentEnd: "'/"
+		softTabs: false
+		tabLength: 4
