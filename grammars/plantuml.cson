@@ -103,14 +103,3 @@ repository:
 				name: "comment.block.plantuml"
 			}
 		]
-	docstrings:
-		patterns: [
-			{
-				begin: "^\\s*/'+"
-				beginCaptures:
-					"0":
-						name: "punctuation.definition.comment.plantuml"
-				end: "'/"
-				name: "comment.block.plantuml"
-			}
-		]
