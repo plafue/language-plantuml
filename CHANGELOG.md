@@ -1,3 +1,6 @@
+## 0.3
+* Update grammar to the one provided by https://github.com/qjebbs/vscode-plantuml
+
 ## 0.2
 * Fixed some discrepancies in the plantum.json related to the scopeName property (thanks markushedvall!)
 * Fixes problems with single line comments and adds support for block comments (thanks bewam!)
